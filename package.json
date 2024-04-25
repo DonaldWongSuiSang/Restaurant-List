@@ -13,6 +13,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "express": "^4.19.1",
-    "express-handlebars": "^7.1.2"
+    "express-handlebars": "^7.1.2",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.30.0",
+    "sequelize-cli": "^6.6.0"
   }
 }
