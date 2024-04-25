@@ -99,3 +99,11 @@ header {
   }
 
 }
+
+#delete_form{
+  display:inline;
+}
+
+#CRUD{
+  text-align:right;
+}
