@@ -2,8 +2,6 @@ const express = require('express')
 const { engine } = require('express-handlebars')
 const app = express()
 const port = 3000
-//const restaurants = require('./public/jsons/restaurant.json').results
-
 app.engine('.hbs', engine({extname: '.hbs'}))
 app.set('view engine', '.hbs')
 app.set('views', './views')
@@ -11,6 +9,9 @@ app.use(express.static('public'))
 
 const db = require('./models')
 const Restaurant = db.Restaurant
+
+app.use(express.urlencoded({ extended: true }))
+// app.use(methodOverride('_method'))
 
 
 app.get('/', (req, res) => {
@@ -38,10 +39,6 @@ return Restaurant.findAll({
   })
 })
 
-app.listen(port, () => {
-  console.log(`express server is running on http://localhost:${port}`)
-})
-
 app.get('/restaurant/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findByPk(id, {
@@ -49,6 +46,33 @@ app.get('/restaurant/:id', (req, res) => {
 		raw: true
 	})
   .then((restaurantid) => res.render('detail',{restaurantid}))
-  // const restaurant = restaurants.find((rest) => rest.id.toString() === id)
-  // res.render('detail', {restaurant})
+
 })
+
+app.get('/restaurants/new', (req, res) => {
+  res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+	const newRestaurant = req.body
+
+  return Restaurant.create({    
+      name: newRestaurant.name,
+      name_en: newRestaurant.name_en,
+      category: newRestaurant.category,
+      image: newRestaurant.image,
+      location: newRestaurant.location,
+      phone: newRestaurant.phone,
+      google_map: newRestaurant.google_map,
+      rating: newRestaurant.rating,
+      description: newRestaurant.description
+  })
+        .then(() => res.redirect('/restaurants'))
+        .catch((err) => console.log(err))
+})
+
+
+app.listen(port, () => {
+  console.log(`express server is running on http://localhost:${port}`)
+})
+

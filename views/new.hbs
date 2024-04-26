@@ -1,0 +1,128 @@
+<header>
+  <!-- navigation -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+          width="30" height="30" class="d-inline-block align-top" alt="好。吃">
+        我的餐廳清單
+      </a>
+    </div>
+  </nav>
+  <div class="banner"></div>
+</header>
+
+<h1 class="mb-1 restaurant-show-title">Create New Restaurant</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+
+      <form id="form" action="/restaurants" method="POST" novalidate>
+      <div class="mb-2">
+        <label for="name" class="text-secondary form-label">
+          <i class="fas fa-signature pr-2"></i>
+          餐廳名稱:
+        </label>
+        <input type="text" placeholder="" name="name" class="form-control"  style="width:400px; display:inline-block;" required>
+        <div class="invalid-feedback">lease provide the name of the restaurant</div>
+      </div>
+
+      <div class="mb-2">
+        <label for="name_en" class="text-secondary form-label">
+          <i class="fas fa-signature pr-2"></i>
+          英文名字:
+        </label>
+        <input type="text" size="50" placeholder="" name="name_en" class="form-control"  style="width:400px; display:inline-block;" required>
+        <div class="invalid-feedback">Please provide the english name of the restaurant</div>
+      </div>
+
+    <div class="mb-2">
+      <label for="category" class="text-secondary form-label">
+          <i class="fas fa-list pr-2"></i>
+          種類:
+        </label>
+        <select name="category" style="width:430px;" id="category">
+          <option value="中東料理">中東料理</option>
+          <option value="日本料理">日本料理</option>
+          <option value="義式餐廳">義式餐廳</option>
+          <option value="美式">美式</option>
+          <option value="酒吧">酒吧</option>
+          <option value="咖啡">咖啡</option>
+          <option value="中式料理">中式料理</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+
+    <div class="mb-2">
+      <label for="location" class="text-secondary form-label">
+          <i class="fas fa-location-dot pr-2"></i>
+          地址:
+        </label>
+        <input type="text" size="54" placeholder="" name="location" class="form-control" style="width:400px; display:inline-block;" required>
+        <div class="invalid-feedback">Please provide the address</div>
+      </div>
+
+    <div class="mb-2">
+      <label for="phone" class="text-secondary form-label">
+          <i class="fas fa-phone pr-2"></i>
+          電話:
+        </label>
+        <input type="tel" pattern="[0-9]{10}" size="50" placeholder="" name="phone" class="form-control" style="width:400px; display:inline-block" required>
+        <div class="invalid-feedback">請輸入10位電話(不需分隔)</div>
+      </div>
+
+      <div class="mb-2">
+      <label for="google_map" class="text-secondary form-label">
+          <i class="fas fa-map pr-2"></i>
+          Google地圖網址:
+        </label>
+        <input type="URL" size="50" placeholder="" name="google_map" class="form-control" style="width:400px; display:inline-block;" required>
+        <div class="invalid-feedback">Please provide the google map URL.</div>
+      </div>
+
+      <div class="mb-2">
+      <label for="rating" class="text-secondary form-label">
+          <i class="fas fa-star pr-2"></i>
+          評分:
+        </label>
+        <input type="number" step="0.1" min="0" max="5" placeholder="" name="rating" class="form-control" style="width:400px; display:inline-block;" required>
+        <div class="invalid-feedback">Please score the restaurant at 0(less favourite)-5(most favourite) by 0.1 </div>
+      </div>
+
+      <div class="mb-2">
+      <label for="description" class="text-secondary form-label">
+          <i class="fas fa-message pr-2"></i>
+          簡介:
+        </label>
+        <input type="text" size="50" placeholder="" name="description" class="form-control" style="width:400px; display:inline-block;" required>
+        <div class="invalid-feedback">Please have a brief description to the restaurant</div>
+      </div>
+
+      <div class="mb-2">
+      <label for="image" class="text-secondary form-label">
+          <i class="fas fa-image pr-2"></i>
+          圖片網址:
+        </label>
+        <input type="URL" size="50" placeholder="" name="image" class="form-control" style="width:400px; display:inline-block;">
+      </div>
+
+      <button class="btn btn-primary btn-lg " id="submit" type="submit">Create</button>
+      </form>
+    </div>
+
+  </div>
+        <!-- Form Validation Script -->
+      <script>
+        const form = document.querySelector('#form')
+        const submitButton = document.querySelector('#submit')
+        submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
+          form.classList.add('was-validated')
+        })
+        form.addEventListener('submit', function onFormSubmitted(event) {
+          if (!form.checkValidity()) {
+            event.stopPropagation()
+            event.preventDefault()
+          }
+        })
+      </script>
+</div>
