@@ -11,6 +11,7 @@ This is a backend programming assignment from the Alpha Camp bootcamp: a restaur
 3. Users can search for restaurants by Chinese name, English name, or category, with case-insensitive and space-insensitive matching.
 
 ### Prerequisites
+
 ```
 Node.js v20.11.1
 ```
@@ -24,11 +25,13 @@ git clone https://github.com/DonaldWongSuiSang/Restaurant-List.git
 ```
 
 Navigate to the project folder:
+
 ```
 cd path/restaurant-list
 ```
 
 Install npm packages:
+
 ```
 npm install
 ```
@@ -45,30 +48,70 @@ Install nodemon:
 npm install -g nodemon
 ```
 
+Install mySQL and sequelize
+
+```
+npm install mysql2@3.2.0 sequelize@6.30.0 sequelize-cli@6.6.0
+```
+
+Install method-override
+
+```
+npm install method-override@3.0.0
+```
+
+Build a Database restaurant in mySQL Workbench
+
+```mySQL
+CREATE DATABASE restaurant;
+```
+
+Migrate with mySQL in terminal
+
+```
+npx sequelize db:migrate
+```
+
+Insert the data from JSON to mySQL
+
+```
+npx sequelize db:seed:all
+```
+
 Start the server by running the app.js file:
 
 ```
 npm run dev
+
 ```
+
 When you see the following message in the terminal, it indicates that the server and database have started successfully:
 
 ```
+
 express server is running on http://localhost:3000
+
 ```
 
 Finally, open any web browser and go to http://localhost:3000 to start browsing the restaurant list.
 
-
 ## Built With
 
-* [Node.js](https://nodejs.org/en) - JavaScript runtime
-* [Express](https://expressjs.com/) - Web application framework for Node.js
-* [Express-handlebar](https://www.npmjs.com/package/express-handlebars) - Templating engine
+- [Node.js](https://nodejs.org/en) - JavaScript runtime
+- [Express](https://expressjs.com/) - Web application framework for Node.js
+- [Express-handlebar](https://www.npmjs.com/package/express-handlebars) - Templating engine
+- [MySQL](https://www.mysql.com/) - Relational database management system
+- [Sequelize](https://sequelize.org/) - Promise-based Node.js ORM for MySQL
+- [Method-override](https://www.npmjs.com/package/method-override) - Middleware for HTTP method override in Express.js
 
 ## Authors
 
-* **Donald Wong**
+- **Donald Wong**
 
 ## Acknowledgments
 
-* [ALPHA Camp](https://tw.alphacamp.co/)
+- [ALPHA Camp](https://tw.alphacamp.co/)
+
+```
+
+```
