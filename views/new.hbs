@@ -65,10 +65,10 @@
     <div class="mb-2">
       <label for="phone" class="text-secondary form-label">
           <i class="fas fa-phone pr-2"></i>
-          電話:
+          電話(以XX XXXX XXXX分隔):
         </label>
-        <input type="tel" pattern="[0-9]{10}" size="50" placeholder="" name="phone" class="form-control" style="width:400px; display:inline-block" required>
-        <div class="invalid-feedback">請輸入10位電話(不需分隔)</div>
+        <input type="tel" pattern="[0-9]{2} [0-9]{4} [0-9]{4}" size="50" placeholder="" name="phone" class="form-control" style="width:400px; display:inline-block" required>
+        <div class="invalid-feedback">請輸入10位電話(以XX XXXX XXXX分隔)</div>
       </div>
 
       <div class="mb-2">
@@ -107,6 +107,7 @@
       </div>
 
       <button class="btn btn-primary btn-lg " id="submit" type="submit">Create</button>
+      <button type="button" class="btn btn-primary btn-lg"><a href="/restaurants" class="text-light">Back</a></button>
       </form>
     </div>
 
