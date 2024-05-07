@@ -16,7 +16,6 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6 mx-auto">
-
       <form id="form" action="/restaurants/{{restaurantid.id}}?_method=PUT" method="POST" novalidate>
         <div class="mb-2">
           <label for="name" class="text-secondary form-label">
@@ -112,33 +111,31 @@
         </div>
 
         <button class="btn btn-primary btn-lg" id="submit" type="submit">Edit</button>
-       <button type="button" class="btn btn-primary btn-lg"><a href="/restaurants" class="text-light">Back</a></button>  
+        <button type="button" class="btn btn-primary btn-lg"><a href="/restaurants" class="text-light">Back</a></button>  
       </form>
     </div>
-
   </div>
-  <!-- Form Validation Script -->
-  <script>
-    const form = document.querySelector('#form')
-    const submitButton = document.querySelector('#submit')
-    submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
-      form.classList.add('was-validated')
-    })
-    form.addEventListener('submit', function onFormSubmitted(event) {
-      if (!form.checkValidity()) {
-        event.stopPropagation()
-        event.preventDefault()
-      }
-    })
-
-    var categoryValue = "{{restaurantid.category}}"
-    var selectElement = document.getElementById("category")
-    for (var i = 0; i < selectElement.options.length; i++) {
-      if (selectElement.options[i].value === categoryValue) {
-        selectElement.options[i].selected = true;
-        break; 
-      }
-    }
-
-  </script>
 </div>
+  <!-- Form Validation Script -->
+<script>
+  const form = document.querySelector('#form')
+  const submitButton = document.querySelector('#submit')
+  submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
+    form.classList.add('was-validated')
+  })
+  form.addEventListener('submit', function onFormSubmitted(event) {
+    if (!form.checkValidity()) {
+      event.stopPropagation()
+      event.preventDefault()
+    }
+  })
+
+  var categoryValue = "{{restaurantid.category}}"
+  var selectElement = document.getElementById("category")
+  for (var i = 0; i < selectElement.options.length; i++) {
+    if (selectElement.options[i].value === categoryValue) {
+      selectElement.options[i].selected = true;
+      break; 
+    }
+  }
+</script>
