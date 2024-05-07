@@ -29,18 +29,20 @@
               <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
             </div>
           </div>
+        </form>
       </div>
     </div>
-    <div class="sorting">
-            <label for="sorting" class="text-secondary form-label">
-            </label>
-            <select name="sorting" id="sorting" onclick="removePlaceholder()">
-              <option value="">Sorting</option>
-              <option value="ascending">A->Z</option>
-              <option value="descending">Z->A</option>
-              <option value="category">類別</option>
-              <option value="area">地區</option>
-            </select>
+      <div class="sorting">
+        <form action="/restaurants" id="sortingForm">
+        <label for="sorting" class="text-secondary form-label"></label>
+        <select name="sorting" id="sorting" type="submit" onclick="removePlaceholder()">
+          <option value="">Sorting</option>
+          <option value="ascending">A->Z</option>
+          <option value="descending">Z->A</option>
+          <option value="category">類別</option>
+          <option value="area">地區</option>
+        </select>
+      </form>
       </div>
 </div>
 
@@ -86,4 +88,16 @@
     var placeholderOption = document.querySelector('#sorting option[value=""]');
     placeholderOption.remove();
   }
+  document.getElementById('sorting').addEventListener('change', function () {
+      document.getElementById('sortingForm').submit();
+    });
+
+  var sortingValue = "{{sorting}}"
+  var selectElement = document.getElementById("sorting")
+    for (var i = 0; i < selectElement.options.length; i++) {
+      if (selectElement.options[i].value === sortingValue) {
+        selectElement.options[i].selected = true;
+        break;
+      }
+    }
 </script>

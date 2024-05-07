@@ -6,8 +6,26 @@ const Restaurant = db.Restaurant
 
 router.get('/', (req, res) => {
   const keyword = req.query.search?.trim()
+  const sorting = req.query.sorting
+  let order
+
+  switch(sorting){
+    case "descending":
+      order = [['name', 'DESC']]
+      break
+    case "category":
+      order = [['category', 'ASC']]
+      break
+    case "area":
+      order = [['location', 'ASC']]
+      break
+    default:
+      order = [['name', 'ASC']]
+  }
+
   return Restaurant.findAll({
     attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description'],
+    order: order,
     raw: true
   })
     .then((restaurants) => {
@@ -21,7 +39,7 @@ router.get('/', (req, res) => {
           })
         )
         : restaurants
-      res.render('index', { restaurants: matchedRestaurants, keyword })
+      res.render('index', { restaurants: matchedRestaurants, keyword, sorting })
     })
 })
 
