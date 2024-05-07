@@ -7,6 +7,10 @@
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
+      </form>
+      <form action="/restaurants/new" style="display:inline;" method="GET">
+        <button class="btn btn-major" type="submit" id="search-button" style="width:130px;">Create</button>
+      </form>
     </div>
   </nav>
   <div class="banner"></div>
@@ -14,27 +18,31 @@
 
 <!-- search bar -->
 <div class="container search-bar">
-  <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/restaurants">
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
-          <input type="text" name="search" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-          aria-describedby="search-button" value="{{keyword}}">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+    <div class="search-bar-outer">
+      <div class="search-bar-inner">
+        <form action="/restaurants">
+          <h4 class="mb-2">尋找餐廳：</h4>
+          <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
+            aria-describedby="search-button" value="{{keyword}}">
+            <div class="input-group-append">
+              <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+            </div>
           </div>
-        </div>
-      </form>
-      <form action="/restaurants/new" style="display:inline;" method="GET">
-        <button class="btn btn-major mt-3" type="submit" id="search-button"><i class="fas fa-plus"></i>Create New Restaurant</button>
-      </form>
+      </div>
     </div>
-  </div>
+    <div class="sorting">
+            <label for="sorting" class="text-secondary form-label">
+            </label>
+            <select name="sorting" id="sorting" onclick="removePlaceholder()">
+              <option value="">Sorting</option>
+              <option value="ascending">A->Z</option>
+              <option value="descending">Z->A</option>
+              <option value="category">類別</option>
+              <option value="area">地區</option>
+            </select>
+      </div>
 </div>
-
-<!--add new button-->
-
 
 <!-- restaurant list -->
 <div class="container mt-5">
@@ -73,5 +81,9 @@
 
 </div>
 
-
-
+<script>
+  function removePlaceholder() {
+    var placeholderOption = document.querySelector('#sorting option[value=""]');
+    placeholderOption.remove();
+  }
+</script>
