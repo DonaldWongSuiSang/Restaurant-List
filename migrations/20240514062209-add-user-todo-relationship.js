@@ -6,9 +6,10 @@ module.exports = {
     await queryInterface.addColumn('Restaurants','UserId',{
     type: Sequelize.INTEGER,
     reference:{
-      model:"Users",
+      model:'Users',
       key:'id'
     },
+    allowNull: false,
     onDelete: 'CASCADE',
     onUpdate:'CASCADE'
 })

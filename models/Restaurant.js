@@ -23,10 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     google_map: DataTypes.STRING,
     rating: DataTypes.FLOAT,
     description: DataTypes.TEXT,
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Restaurant'

@@ -8,8 +8,8 @@ const User = db.User
 router.post('/', (req, res, next) =>{
   const {name, email, password, confirmPassword} = req.body
 
-  if(!name || !email || !password || !confirmPassword){
-    req.flash('error', '請輸入名字，電郵及密碼!')
+  if(!email || !password || !confirmPassword){
+    req.flash('error', '請輸入電郵及密碼!')
     return res.redirect('back')
   }
   if(password !== confirmPassword){
