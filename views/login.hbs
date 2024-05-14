@@ -1,0 +1,32 @@
+
+<div class="container" style="margin: 50px 50px">
+  <h1>Login</h1>
+
+  <form action="/login" method="POST">
+
+    <div style="margin-top: 5px">
+      <label for="email">Email</label>
+    </div>
+    <div style="margin-top: 5px">
+      <input name="email" id="email" placeholder="Enter email" type="email">
+    </div>
+    <div style="margin-top: 5px">
+      <label for="password">Password</label>
+    </div>
+    <div style="margin-top: 5px">
+      <input name="password" id="password" placeholder="Enter password" type="password">
+    </div>
+    <div style="margin-top: 5px">
+      <button type="submit">Login</button>
+  </form>
+
+  <form action="/auth/facebook" method="GET">
+    <button type="submit">Facebook Login</button>
+  </form>
+
+</div>
+<div style="margin-top: 5px">
+  <small>No account?
+    <a href="/register">Register</a>
+  </small>
+</div>

@@ -4,7 +4,7 @@ const router = express.Router()
 const db = require('../models')
 const Restaurant = db.Restaurant
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   const keyword = req.query.search?.trim()
   const sorting = req.query.sorting
   let order
@@ -39,7 +39,11 @@ router.get('/', (req, res) => {
           })
         )
         : restaurants
-      res.render('index', { restaurants: matchedRestaurants, keyword, sorting })
+      res.render('index', { restaurants: matchedRestaurants, keyword, sorting})
+    })
+    .catch((error) => {
+            error.errorMessage = '資料取得失敗'
+            next(error)
     })
 })
 
@@ -48,18 +52,28 @@ router.get('/new', (req, res) => {
 })
 
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
   const id = req.params.id
   return Restaurant.findByPk(id, {
     attributes: ['id', 'name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'rating', 'description'],
     raw: true
   })
-    .then((restaurantid) => res.render('detail', { restaurantid }))
+    .then((restaurantid) => {
+      if(!restaurantid){
+        req.flash('error', '找不到資料')
+        return res.redirect('/restaurants')
+      }
+      res.render('detail', { restaurantid })
+    })
+    .catch((error) =>{
+      error.errorMessage = '資料取得失敗'
+      next(error)
+    })
 })
 
 
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const newRestaurant = req.body
   return Restaurant.create({
     name: newRestaurant.name,
@@ -72,8 +86,14 @@ router.post('/', (req, res) => {
     rating: newRestaurant.rating,
     description: newRestaurant.description
   })
-    .then(() => res.redirect('/restaurants'))
-    .catch((err) => console.log(err))
+    .then(() => {
+      req.flash('success', '新增成功!')
+      return res.redirect('/restaurants')
+    })
+    .catch((error) => {
+    error.errorMessage = '新增失敗!'
+    next(error)
+    })
 })
 
 router.get('/:id/edit', (req, res) => {
@@ -85,10 +105,10 @@ router.get('/:id/edit', (req, res) => {
     .then((restaurantid) => res.render('edit', { restaurantid }))
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', (req, res, next) => {
   const id = req.params.id
   const body = req.body
-  console.log(body)
+
   return Restaurant.update({
     name: body.name,
     name_en: body.name_en,
@@ -100,13 +120,27 @@ router.put('/:id', (req, res) => {
     rating: body.rating,
     description: body.description
   }, { where: { id } })
-    .then(() => res.redirect(`/restaurants/${id}`))
+    .then(() => {
+      req.flash('success', '修改成功!')
+      res.redirect(`/restaurants/${id}`)
+    })
+    .catch((error) => {
+      error.errorMessage = '修改失敗!'
+      next(error)
+    })
 })
 
 router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.destroy({ where: { id } })
-    .then(() => res.redirect('/restaurants'))
+    .then(() => {
+      req.flash('success', '刪除成功')
+      res.redirect('/restaurants')
+    })
+    .catch((error) => {
+      error.errorMessage = '刪取失敗!'
+      next(error)
+    })
 })
 
 module.exports = router

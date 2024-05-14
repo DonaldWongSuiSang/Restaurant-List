@@ -1,0 +1,47 @@
+
+
+<div class="container" style="margin: 50px 50px">
+  <h1>Register</h1>
+
+  <form action="/users" method="POST" novalidate>
+    <div style="margin-top: 5px">
+      <label for="name">Name</label>
+    </div>
+    <div style="margin-top: 5px">
+      <input name="name" id="name" placeholder="Enter name" type="text" required>
+    </div>
+    <div style="margin-top: 5px">
+      <label for="email">Email</label>
+    </div>
+    <div style="margin-top: 5px">
+      <input name="email" id="email" placeholder="Enter email" type="email" required>
+    </div>
+    <div style="margin-top: 5px">
+      <label for="password">Password</label>
+    </div>
+    <div style="margin-top: 5px">
+      <input name="password" id="password" placeholder="Enter password" type="password" required>
+    </div>
+    <div style="margin-top: 5px">
+      <label for="password">Confirm password</label>
+    </div>
+    <div style="margin-top: 5px">
+      <input name="confirmPassword" id="confirmPassword" placeholder="Confirm password" type="password" required>
+    </div>
+
+    <div style="margin:10px 0">
+      <button type="submit">Register</button>
+    </div>
+
+  </form>
+  <form action="/auth/facebook" method="GET">
+    <button type="submit">Facebook Login</button>
+  </form>
+
+  <div>
+    <small>Already have an account?
+      <a href="/login">Login</a>
+    </small>
+  </div>
+
+</div>

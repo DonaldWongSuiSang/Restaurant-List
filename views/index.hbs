@@ -1,3 +1,5 @@
+{{> message}}
+
 <header>
   <!-- navigation -->
   <nav class="navbar navbar-light bg-light">
@@ -8,9 +10,7 @@
         我的餐廳清單
       </a>
       </form>
-      <form action="/restaurants/new" style="display:inline;" method="GET">
-        <button class="btn btn-major" type="submit" id="search-button" style="width:130px;">Create</button>
-      </form>
+    {{> create}}
     </div>
   </nav>
   <div class="banner"></div>

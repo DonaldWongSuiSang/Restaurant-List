@@ -5,7 +5,6 @@ This is a backend programming assignment from the Alpha Camp bootcamp: a restaur
 <img width="1423" alt="螢幕截圖 2024-04-29 15 36 14" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/8c904715-363e-4909-a33e-341c96e3b3ed">
 <img width="1424" alt="螢幕截圖 2024-04-29 15 36 24" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/3182a883-b0fa-447a-bab5-cf3190fd26f4">
 
-
 ## Features:
 
 1. Users can browse all restaurants and view basic information such as name, category, image, and rating.
@@ -60,10 +59,10 @@ Install mySQL and sequelize
 npm install mysql2@3.2.0 sequelize@6.30.0 sequelize-cli@6.6.0
 ```
 
-Install method-override
+Install method-override connect-flash, express-session, passport and passport-local
 
 ```
-npm install method-override@3.0.0
+npm install method-override@3.0.0 connect-flash express-session passport@0.6.0 passport-local@1.0.0
 ```
 
 Build a Database restaurant in mySQL Workbench
