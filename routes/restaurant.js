@@ -66,7 +66,7 @@ router.post('/', (req, res, next) => {
     google_map: newRestaurant.google_map,
     rating: newRestaurant.rating,
     description: newRestaurant.description,
-    userId: userId
+    UserId: userId
   })
     .then(() => {
       req.flash('success', '新增成功!')

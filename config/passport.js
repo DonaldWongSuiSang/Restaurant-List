@@ -6,8 +6,6 @@ const bcrypt = require('bcryptjs')
 const db = require('../models')
 const User = db.User
 
-console.log(process.env)
-
 passport.use(new FacebookStrategy({
 	clientID: process.env.FACEBOOK_CLIENT_ID,
 	clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
@@ -25,9 +23,7 @@ passport.use(new FacebookStrategy({
 	})
 		.then((user) => {
 			if (user) return done(null, user)
-
 			const randomPwd = Math.random().toString(36).slice(-8)
-
 			return bcrypt.hash(randomPwd, 10)
 				.then((hash) => User.create({ name, email, password: hash }))
 				.then((user) => done(null, { id: user.id, name: user.name, email: user.email }))

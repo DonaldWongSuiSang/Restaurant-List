@@ -14,6 +14,7 @@ This is a backend programming assignment from the Alpha Camp bootcamp: a restaur
 5. Users can delete the restaurant
 6. Users can search for restaurants by Chinese name, English name, or category, with case-insensitive and space-insensitive matching.
 7. Users can sorting the restaurant by the name, category or location
+8. User have to login for the restaurant list, there are sample account below or register a new account or login via Facebook
 
 ### Prerequisites
 
@@ -95,17 +96,33 @@ When you see the following message in the terminal, it indicates that the server
 express server is running on http://localhost:3000
 ```
 
-Finally, open any web browser and go to http://localhost:3000 to start browsing the restaurant list.
+Open any web browser and go to http://localhost:3000 to start browsing the restaurant list.
+
+There are two account for the demo, the information as following:
+1st User
+email: user1@example.com
+password: 12345678
+2nd User
+email: user2@example.com
+password: 12345678
+
 
 ## Built With
 
 - [Node.js](https://nodejs.org/en) - JavaScript runtime
 - [Express](https://expressjs.com/) - Web application framework for Node.js
-- [Express-handlebar](https://www.npmjs.com/package/express-handlebars) - Templating engine
+- [Express-handlebars](https://www.npmjs.com/package/express-handlebars) - Templating engine
 - [MySQL](https://www.mysql.com/) - Relational database management system
 - [Sequelize](https://sequelize.org/) - Promise-based Node.js ORM for MySQL
 - [Method-override](https://www.npmjs.com/package/method-override) - Middleware for HTTP method override in Express.js
-- [Standard](https://standardjs.com/#install) - JS Standard Style modules
+- [Connect-flash](https://www.npmjs.com/package/connect-flash) - Middleware for displaying flash messages
+- [Dotenv](https://www.npmjs.com/package/dotenv) - Module for loading environment variables
+- [Passport](http://www.passportjs.org/) - Authentication middleware for Node.js
+- [Passport-local](http://www.passportjs.org/packages/passport-local/) - Passport strategy for authenticating with a username and password
+- [Passport-facebook](http://www.passportjs.org/packages/passport-facebook/) - Passport strategy for authenticating with Facebook using the OAuth 2.0 API
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs) - Library for hashing passwords
+- [Font Awesome](https://fontawesome.com/) - Icon toolkit
+
 
 ## Authors
 
