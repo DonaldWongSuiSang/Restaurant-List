@@ -8,19 +8,17 @@ const restaurants = require('./restaurant')
 const users = require('./user')
 
 const db = require('../models')
+const authHandler = require('../middlewares/auth-handler')
 const Users = db.User
 
-router.use('/restaurants', restaurants)
-router.use('/user', users)
-
-
-passport.use(new LocalStrategy({usernameField: 'email'}, (username, passport, done) => {
+passport.use(new LocalStrategy({usernameField: 'email'}, (username, password, done) => {
 return Users.findOne({
   attributes: ['id', 'name', 'email', 'password'],
   where: {email: username},
   raw:true
 })
   .then((user) => {
+    console.log(user)
     if(!user || user.password !== password){
       return done(null, false, {message: 'email或密碼錯誤'})
     }
@@ -37,6 +35,13 @@ passport.serializeUser((user, done) =>{
   return done(null, {id, name, email})
 })
 
+passport.deserializeUser((user, done) =>{
+  done(null, {id: user.id})
+})
+
+router.use('/restaurants', authHandler,restaurants)
+router.use('/users', users)
+
 router.get('/', (req, res) => {
   res.redirect('/restaurants')
 })
@@ -50,9 +55,18 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local', {
-	successRedirect: '/restaurant',
+	successRedirect: '/restaurants',
 	failureRedirect: '/login',
 	failureFlash: true
 }))
+
+router.post('/logout', (req, res, next) =>{
+  req.logout((error) =>{
+    if(error){
+      return next(error)
+    }
+    return res.redirect('/login')
+  })
+})
 
 module.exports = router
