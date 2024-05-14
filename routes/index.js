@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const bcrypt = require('bcryptjs')
 
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
@@ -18,11 +19,16 @@ return Users.findOne({
   raw:true
 })
   .then((user) => {
-    console.log(user)
-    if(!user || user.password !== password){
-      return done(null, false, {message: 'email或密碼錯誤'})
+    if(!user){
+      return done(null, false, {message: 'email錯誤'})
     }
-    return done(null, user)
+    return bcrypt.compare(password, user.password)
+    .then((isMatch) =>{
+      if(!isMatch){
+        return done(null,false, {message:'密碼錯誤'})
+      }
+      return done(null, user)
+    })
   })
   .catch((error) => {
     error.message = '登入失敗'

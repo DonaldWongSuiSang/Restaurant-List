@@ -56,13 +56,13 @@ npm install -g nodemon
 Install mySQL and sequelize
 
 ```
-npm install mysql2@3.2.0 sequelize@6.30.0 sequelize-cli@6.6.0
+npm install mysql2 sequelize sequelize-cli
 ```
 
-Install method-override connect-flash, express-session, passport and passport-local
+Install method-override connect-flash, express-session, passport, passport-local and bcryptjs
 
 ```
-npm install method-override@3.0.0 connect-flash express-session passport@0.6.0 passport-local@1.0.0
+npm install method-override connect-flash express-session passport passport-local bcryptjs
 ```
 
 Build a Database restaurant in mySQL Workbench
