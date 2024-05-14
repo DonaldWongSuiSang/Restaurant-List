@@ -59,10 +59,10 @@ Install mySQL and sequelize
 npm install mysql2 sequelize sequelize-cli
 ```
 
-Install method-override connect-flash, express-session, passport, passport-local and bcryptjs
+Install method-override, connect-flash, express-session, dotenv, passport, passport-local, passport-facebook and bcryptjs
 
 ```
-npm install method-override connect-flash express-session passport passport-local bcryptjs
+npm install method-override connect-flash express-session passport passport-local passport-facebook bcryptjs dotenv
 ```
 
 Build a Database restaurant in mySQL Workbench
