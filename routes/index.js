@@ -3,16 +3,12 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 
 const passport = require('passport')
-const LocalStrategy = require('passport-local')
-const FacebookStrategy = require('passport-facebook')
 
 const restaurants = require('./restaurant')
 const users = require('./user')
 
 const db = require('../models')
 const authHandler = require('../middlewares/auth-handler')
-const Users = db.User
-
 
 router.use('/restaurants', authHandler,restaurants)
 router.use('/users', users)

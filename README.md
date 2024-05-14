@@ -84,6 +84,12 @@ Insert the data from JSON to mySQL
 npx sequelize db:seed:all
 ```
 
+Set the Node environment as development
+
+```
+export NODE_ENV=development
+```
+
 Start the server by running the app.js file:
 
 ```
@@ -106,7 +112,6 @@ password: 12345678
 email: user2@example.com
 password: 12345678
 
-
 ## Built With
 
 - [Node.js](https://nodejs.org/en) - JavaScript runtime
@@ -122,7 +127,6 @@ password: 12345678
 - [Passport-facebook](http://www.passportjs.org/packages/passport-facebook/) - Passport strategy for authenticating with Facebook using the OAuth 2.0 API
 - [Bcryptjs](https://www.npmjs.com/package/bcryptjs) - Library for hashing passwords
 - [Font Awesome](https://fontawesome.com/) - Icon toolkit
-
 
 ## Authors
 
