@@ -22,7 +22,11 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     google_map: DataTypes.STRING,
     rating: DataTypes.FLOAT,
-    description: DataTypes.TEXT
+    description: DataTypes.TEXT,
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Restaurant'
