@@ -1,9 +1,9 @@
 # My Restaurant List
 
 This is a backend programming assignment from the Alpha Camp bootcamp: a restaurant list website built using Node.js + Express, which includes various restaurant information for users to browse, view details, and search.
-<img width="1436" alt="螢幕截圖 2024-05-07 16 09 43" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/684e48fd-cecf-447e-9616-48a7db49eb14">
-<img width="1423" alt="螢幕截圖 2024-04-29 15 36 14" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/8c904715-363e-4909-a33e-341c96e3b3ed">
-<img width="1424" alt="螢幕截圖 2024-04-29 15 36 24" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/3182a883-b0fa-447a-bab5-cf3190fd26f4">
+<img width="1429" alt="螢幕截圖 2024-05-14 21 48 11" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/f688a1e5-cf67-40b5-8554-9471057fb435">
+<img width="1433" alt="螢幕截圖 2024-05-14 21 48 31" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/355b39fd-ab91-4c78-b0fb-b433c8e6da58">
+<img width="1407" alt="螢幕截圖 2024-05-14 22 16 52" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/2ea913af-d840-427a-8578-4de2129403a9">
 
 ## Features:
 
@@ -104,13 +104,14 @@ express server is running on http://localhost:3000
 
 Open any web browser and go to http://localhost:3000 to start browsing the restaurant list.
 
-There are two account for the demo, the information as following:
-1st User
-email: user1@example.com
-password: 12345678
-2nd User
-email: user2@example.com
-password: 12345678
+There are two account for the demo, the information as following:  
+> 1st User  
+> email: user1@example.com  
+> password: 12345678  
+
+> 2nd User  
+> email: user2@example.com  
+> password: 12345678  
 
 ## Built With
 
