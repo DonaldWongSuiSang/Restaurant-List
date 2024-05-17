@@ -4,8 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "set NODE_ENV=development && node app.js",
+    "dev": "set NODE_ENV=development && nodemon app.js",
+    "seed": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "test": "standard && node my-tests.js"
  },
   "keywords": [],
   "author": "Donald",

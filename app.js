@@ -10,8 +10,8 @@ const session = require('express-session')
 const messageHandler = require('./middlewares/message-handler')
 const errorHandler = require('./middlewares/error-handler')
 
-if (process.env.NODE_ENV === "development"){
-	require('dotenv').config()
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
 }
 
 const passport = require('./config/passport')
@@ -24,11 +24,10 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
 app.use(session({
-	secret: process.env.NODE_ENV,
-	resave: false,
-	saveUninitialized: false
+  secret: process.env.NODE_ENV,
+  resave: false,
+  saveUninitialized: false
 }))
 
 app.use(flash())
@@ -44,5 +43,4 @@ app.use(errorHandler)
 
 app.listen(port, () => {
   console.log(`express server is running on http://localhost:${port}`)
-	
 })

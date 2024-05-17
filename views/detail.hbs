@@ -14,12 +14,12 @@
   <div class="banner"></div>
 </header>
 
-<h1 class="mb-1 restaurant-show-title">{{restaurantid.name}}</h1>
+<h1 class="mb-1 restaurant-show-title">{{restaurantId.name}}</h1>
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
       {{> message}}
-      <button type="button" class="btn btn-primary btn-lg"><a href="/restaurants/{{restaurantid.id}}/edit" class="text-dark">Edit</a></button>
+      <button type="button" class="btn btn-primary btn-lg"><a href="/restaurants/{{restaurantId.id}}/edit" class="text-dark">Edit</a></button>
       <button type="button" class="btn btn-primary btn-lg"><a href="/restaurants" class="text-dark">Back to Home Page</a></button>
 
 
@@ -28,7 +28,7 @@
           <i class="fas fa-utensils pr-2"></i>
           類別：
         </span>
-        {{restaurantid.category}}
+        {{restaurantId.category}}
       </p>
 
       <p class="mb-1">
@@ -36,7 +36,7 @@
           <i class="fas fa-map-marker-alt pr-2"></i>
           地址：
         </span>
-        {{restaurantid.location}}
+        {{restaurantId.location}}
         <a href="restaurant.google_map" class="text-secondary" target="_blank">
           <i class="fas fa-location-arrow pr-2 fa-xs"></i>
         </a>
@@ -47,15 +47,15 @@
           <i class="fas fa-mobile-alt pr-2"></i>
           電話：
         </span>
-        {{restaurantid.phone}}
+        {{restaurantId.phone}}
       </p>
 
       <p class="mb-5">
-        {{restaurantid.description}}
+        {{restaurantId.description}}
       </p>
 
       <img class="rounded mx-auto d-block mb-4 w-100"
-        src="{{restaurantid.image}}" alt="{{restaurantid.name}}"
+        src="{{restaurantId.image}}" alt="{{restaurantId.name}}"
         style="max-width: 600px;">
     </div>
   </div>

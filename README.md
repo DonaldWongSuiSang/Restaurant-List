@@ -42,53 +42,20 @@ Install npm packages:
 npm install
 ```
 
-Install Express:
-
-```
-npm i express
-```
-
 Install nodemon:
 
 ```
 npm install -g nodemon
 ```
 
-Install mySQL and sequelize
+Initialize the database
 
 ```
-npm install mysql2 sequelize sequelize-cli
+npm run seed
 ```
 
-Install method-override, connect-flash, express-session, dotenv, passport, passport-local, passport-facebook and bcryptjs
+Create a ".env" file according to the ".env example"
 
-```
-npm install method-override connect-flash express-session passport passport-local passport-facebook bcryptjs dotenv
-```
-
-Build a Database restaurant in mySQL Workbench
-
-```mySQL
-CREATE DATABASE restaurant;
-```
-
-Migrate with mySQL in terminal
-
-```
-npx sequelize db:migrate
-```
-
-Insert the data from JSON to mySQL
-
-```
-npx sequelize db:seed:all
-```
-
-Set the Node environment as development
-
-```
-export NODE_ENV=development
-```
 
 Start the server by running the app.js file:
 
@@ -104,20 +71,21 @@ express server is running on http://localhost:3000
 
 Open any web browser and go to http://localhost:3000 to start browsing the restaurant list.
 
-There are two account for the demo, the information as following:  
+There are two account for the demo, the information as following:
+
 > 1st User  
 > email: user1@example.com  
-> password: 12345678  
+> password: 12345678
 
 > 2nd User  
 > email: user2@example.com  
-> password: 12345678  
+> password: 12345678
 
 ## Built With
 
 - [Node.js](https://nodejs.org/en) - JavaScript runtime
 - [Express](https://expressjs.com/) - Web application framework for Node.js
-- [Express-handlebars](https://www.npmjs.com/package/express-handlebars) - Templating engine
+- [Express-handlebars](https://www.npmjs.com/package/express-handlebars) - Template engine
 - [MySQL](https://www.mysql.com/) - Relational database management system
 - [Sequelize](https://sequelize.org/) - Promise-based Node.js ORM for MySQL
 - [Method-override](https://www.npmjs.com/package/method-override) - Middleware for HTTP method override in Express.js
