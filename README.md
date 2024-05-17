@@ -1,9 +1,8 @@
 # My Restaurant List
 
 This is a backend programming assignment from the Alpha Camp bootcamp: a restaurant list website built using Node.js + Express, which includes various restaurant information for users to browse, view details, and search.
-<img width="1429" alt="螢幕截圖 2024-05-14 21 48 11" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/f688a1e5-cf67-40b5-8554-9471057fb435">
-<img width="1433" alt="螢幕截圖 2024-05-14 21 48 31" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/355b39fd-ab91-4c78-b0fb-b433c8e6da58">
-<img width="1407" alt="螢幕截圖 2024-05-14 22 16 52" src="https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/2ea913af-d840-427a-8578-4de2129403a9">
+![MP4 to GIF conversion](https://github.com/DonaldWongSuiSang/Restaurant-List/assets/99122276/61bb2d25-18dc-4e1a-a8a2-408dd23a925d)
+
 
 ## Features:
 
